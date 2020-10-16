@@ -3,3 +3,4 @@ public class ejercicio1 { // clase principal
 			System.out.println("¡Hola mundo!");
 	}
 }
+
