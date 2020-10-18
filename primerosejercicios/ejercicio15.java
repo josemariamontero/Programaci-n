@@ -1,4 +1,4 @@
-// Lectura de datos desde el teclado
+/ Lectura de datos desde el teclado
 
 public class ejercicio15 {
 	public static void main(String[] args ) {
