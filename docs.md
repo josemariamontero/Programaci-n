@@ -485,7 +485,7 @@ public class ejercicio23 {
 A veces es necesario comparar el valor de una variable con una serie de valores. En el lenguaje natural sería: `Si variable vale valor1 entonces entra por case valor1;... Si variable no vale ninguno de los valores anteriores case entonces entra por default:`
 
 - Es necesario introducir un **break;** después de la asignación de la variable, ya que si no el programa continua la ejecución en la siguiente línea.
-- El bloque correspondiente a **default:** se ejecuta cuando la variable no coincide con los valores de los `case` anteriores. Lo escribiremos al final de la sentencia aunque no sea necesario.
+- El bloque correspondiente a **default;** se ejecuta cuando la variable no coincide con los valores de los `case` anteriores. Lo escribiremos al final de la sentencia aunque no sea necesario.
 
 ~~~
 public class ejercicio24 {
