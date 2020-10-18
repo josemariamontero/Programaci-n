@@ -172,9 +172,9 @@ public class ejercicio10 {
 ~~~
 
 ## 2.5 Operadores aritméticos
-- + => suma => suma dos números
-- - => resta => resta dos números
-- * => multiplicación => multiplica dos números
+- \+ => suma => suma dos números
+- \- => resta => resta dos números
+- \* => multiplicación => multiplica dos números
 - / => división => divide dos números
 - % => resto(módulo) => resto de la división entera
 - ++ => incremento => incrementa en 1 el valor de la variable
