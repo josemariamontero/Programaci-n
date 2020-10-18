@@ -424,9 +424,9 @@ public class ejercicio21 {
 - == => igual => a es igual a b
 - != => distinto => a es distinto a b
 - < => menor => a es menor que b
-- > => mayor => a es mayor que b
+- \> => mayor => a es mayor que b
 - <= => menor o igual que => a es menor o igual que b
-- >= => mayor o igual que => a es mayor o igual que b
+- \>= => mayor o igual que => a es mayor o igual que b
 
 ~~~
 public class ejercicio22 {
