@@ -25,6 +25,7 @@
 5. [Bucles](#5-bucles)
 	1. [Bucle for](#51-bucle-for)
 	2. [Bucle while](#52-bucle-while)
+	3. [Bucle do-while](#53-bucle-do-while)
 
 
 ## 1. Salida de datos por pantalla
@@ -639,3 +640,41 @@ public class ejercicio28 {
 ~~~
 
 ## 5.3 Bucle do-while
+Funciona de la misma manera que el bucle **while** pero la condición se evalúa al final de la sentencia.
+
+~~~
+public class ejercicio29 {
+	public static void main(String[] args ) {
+		int i = 1;
+
+		do {
+			System.out.println("El valor de i es: " + i);
+			i++;
+		} while (i < 11);
+	}	
+}
+~~~
+
+
+~~~
+import java.util.Scanner;
+
+public class ejercicio30 {
+	public static void main(String[] args ) {
+		int numero;
+
+		Scanner x = new Scanner(System.in);
+
+		do {
+			System.out.print("Introduce un número: ");
+			numero = x.nextInt();
+
+			if (numero % 2 == 0) {
+				System.out.println("Par");
+			} else {
+				System.out.println("Impar, saliendo del programa");
+			}
+		} while (numero % 2 == 0);
+	}
+}
+~~~
