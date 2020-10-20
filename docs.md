@@ -22,6 +22,9 @@
 	2. [Operadores de comparación](#42-operadores-de-comparación)
 	3. [Operadores lógicos](#43-operadores-lógicos)
 	4. [Sentencia switch](#44-sentencia-switch)
+5. [Bucles](#5-bucles)
+	1. [Bucle for](#51-bucle-for)
+	2. [Bucle while](#52-bucle-while)
 
 
 ## 1. Salida de datos por pantalla
@@ -585,3 +588,54 @@ public class ejercicio25 {
 	}
 }
 ~~~
+
+## 5. Bucles
+Son utilizados para repetir un conjunto de sentencias. Normalmente existe una condición de salida, que hace que el flujo del programa abandone el bucle y continue justo en la siguiente sentencia. Si no existe condición de salida o no se cumple nunca se generará lo llamado bucle infinito y el programa no terminaría nunca.
+
+## 5.1 Bucle for 
+Se utiliza cuando se conoce previamente el número exacto de repeticiones que se van a realizar.
+
+~~~
+public class ejercicio26 {
+	public static void main(String[] args ) {
+		for (int i = 1; i < 11; i++){
+			System.out.println("Valor de i: "+ i);
+		}
+	}
+}
+~~~
+
+En el ejemplo anterior, `int i = 1;` solamente se ejecuta 1 vez, mientras se cumpla la condición de `i < 11;`, el contenido del bucle se va a ejecutar. `i++;` hace que la variable "i" se incremente en 1. 
+
+## 5.2 Bucle while
+Se utiliza para repetir un conjunto de sentencias siempre que se cumpla una determinada condición. La condición se comprueba al comienzo del bucle y las sentencias se ejecutarán mientras la condición sea verdadera.
+
+~~~
+import java.util.Scanner;
+
+public class ejercicio28 {
+	public static void main(String[] args ){
+		
+		Scanner x = new Scanner(System.in);
+
+		System.out.println("Introduzca numeros: ");
+		System.out.print("Introduzca un numero negativo para terminar: ");
+
+		int numerosIntroducidos = 0;
+		int contador = 0;
+		int suma = 0;
+
+		while (numerosIntroducidos >= 0) {
+			numerosIntroducidos = x.nextInt();
+			contador++;
+			suma += numerosIntroducidos;
+		}
+
+		System.out.println("Has introducido: "+ contador + " numeros.");
+		System.out.println("La suma de los números introducidos es: "+ suma);
+
+	}
+}
+~~~
+
+## 5.3 Bucle do-while
