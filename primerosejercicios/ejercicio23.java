@@ -3,10 +3,10 @@
 public class ejercicio23 {
 	public static void main(String[] args ) {
 	System.out.println("Adivina el numero que estoy pensando.");
+	
 	System.out.print("Introduce un numero: ");
 	String respuesta = System.console().readLine();
-
-	int numero = Integer.parseInt(respuesta);
+	sssint numero = Integer.parseInt(respuesta);
 
 	if ((numero < 1) || (numero > 100)) {
 		System.out.println("El número introducido se encuentra fuera del rango.");
