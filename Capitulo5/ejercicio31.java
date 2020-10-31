@@ -8,6 +8,18 @@ public class ejercicio31 {
 	public static void main(String[] args ) {
 		Scanner x = new Scanner(System.in);
 
+		System.out.print("Introduce la altura de la L: ");
+		int altura = x.nextInt();
+
+		for (int contador = 0; contador < altura; contador++){
+			System.out.println("*");
+		}
+
+		for (int contador2 = 0; contador2 < (altura / 2) + 1; contador2++) {
+			System.out.print("* ");
+
+		}
+
 
 	}
 }

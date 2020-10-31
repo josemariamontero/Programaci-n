@@ -12,18 +12,29 @@ public class ejercicio24 {
 	public static void main(String[] args ) {
 		Scanner x = new Scanner(System.in);
 		
-		System.out.print("Introduce un número: ");
-		int numero = x.nextInt();
+		System.out.print("Introduce la altura: ");
+    int altura = x.nextInt();
 
-		 int num2 = 0;
-        for(int i=0; i<=15;i++){
-           int num = 0;
-           while(num<=num2){
-               System.out.print("*");
-               num++;
-           }
-           num2++;
-           System.out.println("");
-        }
+    int altura2 = 1;
+    int i = 0;
+    int espacios = altura - 1;
+
+    while (altura2 <= altura) {
+      for (i = 1; i < espacios; i++) {
+        System.out.print(" ");
+      }
+
+      for (i = 1; i < altura2; i++) {
+        System.out.print(i);
+      }
+
+     for (i = altura2; i > 0; i--) {
+        System.out.print(i);
+      }
+
+      System.out.println();
+      altura2++;
+      espacios--;
+    }
 	}
 }
