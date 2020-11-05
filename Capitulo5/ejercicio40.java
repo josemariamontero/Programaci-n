@@ -10,38 +10,37 @@ public class ejercicio40 {
 		Scanner x = new Scanner(System.in);
 
 		System.out.print("Introduce la altura: ");
-		int altura = x.nextInt();
+		int alturaTeclado = x.nextInt();
 
 		int espaciosInternos = 0;
-		int espaciosExternos = altura / 2;
-		int altura2 = 1;
+		int espaciosExternos = alturaTeclado / 2;
+		int altura = 1;
 
-		while (altura2 < altura / 2 + 1) {
+		while (altura <= alturaTeclado / 2 + 1) {
 			for (int i = 1; i <= espaciosExternos; i++) {
-				System.out.print(" ");
-			}
+          		System.out.print(" ");
+        	}
 
-			System.out.print("*");
+       		System.out.print("*");
+        	for (int i = 1; i < espaciosInternos; i++) {
+          		System.out.print(" ");
+        	}
 
-			for (int i = 1; i < espaciosInternos; i++) {
-				System.out.print(" ");
-			}
-
-			if (altura2 > 1) {
-				System.out.print("*");
-			}
-
-			System.out.println();
-			altura2++;
-			espaciosExternos--;
-			espaciosInternos+=2;
+        	if (altura>1) {
+          		System.out.print("*");
+        	}
+        
+        System.out.println();
+        altura++;
+        espaciosExternos--;
+        espaciosInternos+=2;
 		}
-
-		espaciosInternos = altura - 3;
+		
+		espaciosInternos = alturaTeclado - 3;
 		espaciosExternos = 1;
-		altura2 = 0;
+		altura = 0;
 
-		while (altura2 < altura / 2){
+		while (altura < alturaTeclado / 2) {
 			for (int i = 1; i <= espaciosExternos; i++) {
 				System.out.print(" ");
 			}
@@ -50,18 +49,19 @@ public class ejercicio40 {
 
 			for (int i = 1; i < espaciosInternos; i++) {
 				System.out.print(" ");
-
 			}
 
-			if (altura < altura / 2 - 1) {
-				System.out.print("*");
-			}
+			if (altura < alturaTeclado / 2 - 1) {
+          		System.out.print("*");
+        	}
 
-			System.out.println();
-			altura2++;
-			espaciosExternos--;
-			espaciosInternos -= 2;
+        	System.out.println();
+
+        	altura++;
+        	espaciosInternos -= 2;
+        	espaciosExternos++;
 		}
+
 
 	}
 }

@@ -11,30 +11,30 @@ import java.util.Scanner;
 public class ejercicio24 { 
 	public static void main(String[] args ) {
 		Scanner x = new Scanner(System.in);
-		
-		System.out.print("Introduce la altura: ");
-    int altura = x.nextInt();
 
-    int altura2 = 1;
-    int i = 0;
-    int espacios = altura - 1;
-
-    while (altura2 <= altura) {
-      for (i = 1; i < espacios; i++) {
+    System.out.print("Introduzca la altura de la pirámide:");
+    int alturaTeclado = x.nextInt();
+    
+    int altura = 1;
+    int espacios = alturaTeclado - 1;
+    
+    while (altura <= alturaTeclado) {
+      for (int i = 1; i <= espacios; i++) {
         System.out.print(" ");
       }
-
-      for (i = 1; i < altura2; i++) {
+      
+      for (int i = 1; i < altura; i++) {
         System.out.print(i);
       }
-
-     for (i = altura2; i > 0; i--) {
+      
+      for (int i = altura; i > 0; i--) {
         System.out.print(i);
       }
-
+      
       System.out.println();
-      altura2++;
+      
+      altura++;
       espacios--;
     }
-	}
+  }
 }

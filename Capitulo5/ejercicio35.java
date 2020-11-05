@@ -8,20 +8,57 @@ public class ejercicio35 {
 	public static void main(String[] args ) {
 		Scanner x = new Scanner(System.in);
 
-		int altura = 0;
-
 		System.out.print("Introduce la altura: ");
-		altura = x.nextInt();
+		int alturaTeclado = x.nextInt();
 
-		for (int contador = 1; contador < altura; contador++) {
-			System.out.print("x ");
-			
-			for (int contador2 = 2; contador2  < altura; contador2++) {
-				System.out.print("  ");
+		int altura2 = 1;
+		int espaciosExteriores = 0;
+		int espaciosInteriores = alturaTeclado - 1;
+
+		while (altura2 < alturaTeclado / 2 +1) {
+			for (int i = 1; i <= espaciosExteriores; i++) {
+				System.out.print(" ");
 			}
 
-			System.out.println("x");
-			
+			System.out.print("*");
+
+			for (int i = 1; i < espaciosInteriores; i++) {
+				System.out.print(" ");
+			}
+
+			System.out.print("*");
+
+			System.out.println();	
+
+
+			altura2++;
+			espaciosExteriores++;
+			espaciosInteriores-=2;
+		}
+
+		altura2 = 1;
+		espaciosInteriores = 0;
+		espaciosExteriores = alturaTeclado / 2;
+
+		while (altura2 <= alturaTeclado / 2 + 1) {
+			for (int i = 1; i <= espaciosExteriores; i++) {
+				System.out.print(" ");
+			}
+
+			System.out.print("*");
+
+			for (int i = 1; i < espaciosInteriores; i++) {
+				System.out.print(" ");
+			}
+
+			System.out.print("*");
+
+			System.out.println();
+
+			altura2++;
+			espaciosInteriores += 2;
+			espaciosExteriores--;
+
 		}
 
 	}

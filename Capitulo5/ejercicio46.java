@@ -22,19 +22,24 @@ public class ejercicio46 {
 			System.out.println("Error, datos incorrectos");
 		} else {
 		
-		
-			for (int i = 1; i < altura; i++) {
-				System.out.println("*");
-			}
-
-
-			for (int y = 0; y < anchura; y++) {
+			for (int i = 0; i < anchura; i++) {
 				System.out.print("* ");
 			}
-
 			System.out.println();
-	}
+			for (int i = 0; i < altura - 2; i++) {
+				System.out.print("*");
+				for (int y = 2; y < (anchura * 2) - 1 ; y++) {
+					System.out.print(" ");
+				}
+				System.out.println("*");
+			}
+			
 
+			for (int i = 0; i < anchura; i++) {
+				System.out.print("* ");
+			}
+		}
 
+		System.out.println();
 	}
 }

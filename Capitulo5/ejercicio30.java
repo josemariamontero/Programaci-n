@@ -90,18 +90,18 @@ public class ejercicio30 {
 					break;
 			}
 
-			if (numDia2 >  numDia1) {
-				System.out.print("El segundo día debe ser posterior al primero día");
+			if (numDia2 > numDia1) {
+				System.out.println("El segundo día debe ser posterior al primero día");
 				correcto = false;
 			}
 
 			if (horaDia1 < 0 || horaDia1 > 23 || horaDia2 < 0 || horaDia2 > 23){
-				System.out.print("Fuera del límite de horas");
+				System.out.println("Fuera del límite de horas");
 				correcto = false;
 			}
 
 			if ((numDia1 == 0) && (numDia1 > 8) || (numDia2 == 0) && (numDia2 > 8)) {
-				System.out.print("Error no existe ese día");
+				System.out.println("Error no existe ese día");
 				correcto = false;
 			}			
 

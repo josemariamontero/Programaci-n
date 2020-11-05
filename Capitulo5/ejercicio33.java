@@ -10,22 +10,21 @@ public class ejercicio33 {
 		Scanner x = new Scanner(System.in);
 
 		System.out.print("Introduce la altura de la U: ");
-		int altura = x.nextInt();
+		int alturaTeclado = x.nextInt();
 
-		for (int contador = 1; contador < altura; contador++) {
-			System.out.print("* ");
-			
-			for (int contador2 = 2; contador2  < altura; contador2++) {
-				System.out.print("  ");
-			}
-
-			System.out.println("*");
-		}
+		for (int i = 1; i < alturaTeclado; i++) {
+      		System.out.print("*");
+     		for (int j = 2; j < alturaTeclado; j++) {
+       			 System.out.print("  ");
+      		}
+     		 System.out.println("*");
+    	}
 
 		System.out.print(" ");
-		for (int contador = 2; contador < altura; contador++){
-			System.out.print(" *");
+		for (int i = 2; i < alturaTeclado; i++) {
+			System.out.print("* ");
 		}
 
+		System.out.println();
 	}
 }
