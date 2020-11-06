@@ -15,7 +15,11 @@ public class ejercicio35 {
 		int espaciosExteriores = 0;
 		int espaciosInteriores = alturaTeclado - 1;
 
-		while (altura2 < alturaTeclado / 2 +1) {
+		if ((alturaTeclado < 3) || (alturaTeclado % 2 == 0)) {
+			System.out.println("Error");
+		} else {
+
+		while (altura2 < alturaTeclado / 2 + 1) {
 			for (int i = 1; i <= espaciosExteriores; i++) {
 				System.out.print(" ");
 			}
@@ -51,7 +55,9 @@ public class ejercicio35 {
 				System.out.print(" ");
 			}
 
-			System.out.print("*");
+			if (altura2 > 1) { 
+				System.out.print("*");
+			}
 
 			System.out.println();
 
@@ -60,6 +66,7 @@ public class ejercicio35 {
 			espaciosExteriores--;
 
 		}
+	}
 
 	}
 }

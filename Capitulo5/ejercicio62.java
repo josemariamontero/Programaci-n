@@ -10,6 +10,33 @@ public class ejercicio62 {
 	public static void main(String[] args ) {
 		Scanner x = new Scanner(System.in);
 
+		System.out.print("Introduce un número: ");
+		int numeroTeclado = x.nextInt();
 		
+
+		int afortunado = 0;
+		int noAfortunado = 0;
+		int digito = 0;
+
+		int numero = numeroTeclado;
+
+		while (numeroTeclado > 0) {
+			digito = numeroTeclado % 10;
+		
+			if ((digito == 3) || (digito == 7) || (digito == 8) || (digito == 9)) {
+				afortunado++;
+			} else {
+				noAfortunado++;
+			}
+
+			numeroTeclado /= 10;
+
+		}		
+
+		if (noAfortunado < afortunado) {
+			System.out.println("El número " + numero + " es afortunado");
+		} else { 
+		System.out.println("El número " + numero + " no es afortunado");
+		}
 	}
 }

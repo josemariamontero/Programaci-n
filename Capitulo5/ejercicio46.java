@@ -31,7 +31,7 @@ public class ejercicio46 {
 				for (int y = 2; y < (anchura * 2) - 1 ; y++) {
 					System.out.print(" ");
 				}
-				System.out.println("*");
+				System.out.println("* ");
 			}
 			
 
