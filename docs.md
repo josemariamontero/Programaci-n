@@ -26,6 +26,7 @@
 	1. [Bucle for](#51-bucle-for)
 	2. [Bucle while](#52-bucle-while)
 	3. [Bucle do-while](#53-bucle-do-while)
+. [Arrays](#7-arrays)
 
 
 ## 1. Salida de datos por pantalla
@@ -678,3 +679,5 @@ public class ejercicio30 {
 	}
 }
 ~~~
+
+## 7. Arrays
