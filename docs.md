@@ -26,7 +26,7 @@
 	1. [Bucle for](#51-bucle-for)
 	2. [Bucle while](#52-bucle-while)
 	3. [Bucle do-while](#53-bucle-do-while)
-. [Arrays](#7-arrays)
+7. [Arrays](#7-arrays)
 
 
 ## 1. Salida de datos por pantalla
@@ -681,3 +681,166 @@ public class ejercicio30 {
 ~~~
 
 ## 7. Arrays
+## 7.1 Arrays de una dimensión
+Un array es un tipo de dato capaz de almacenar múltiples valores. Se utiliza para agrupar datos muy parecidos.
+También los arrays de una dimensión se llaman vector.
+
+**Ejemplo de creación de array**
+
+~~~
+public class ejercicio31 {
+  public static void main(String[] args ) {
+    //creación de array con números Enteros
+    int []numeros = new int[4]; //se reserva 4 espacios para añadir Enteros
+
+    numeros[0] = 26;
+    numeros[1] = -30;
+    numeros[2] = 0;
+    numeros[3] = 100;
+
+    //imprimir los valores del array
+    System.out.print(numeros[0] + ", " + numeros[1] + ", " + numeros[2] + ", " + numeros[3]);
+
+    System.out.println();
+
+    //mostrar la suma del primer y el último elemento
+    System.out.println("Suma total: " + (numeros[0] + numeros[3]));
+
+  }
+}
+~~~
+
+Si se conocen previamente todos los valore iniciales del **array**, se puede crear e inicializar en una sola línea
+
+> int []x = {8,33,200,150,11}
+
+Cada elemento del array se puede utilizar igual que cualquier otra variable, se le puede asignar un valor o se puede usar dentro de una expresión.
+
+Para recorrer todos los elementos de un array se suele utilizar el bucle *for*.
+
+~~~
+public class ejercicio32 {
+  public static void main(String[] args ) {
+    //defino el array y reservo 10 espacios
+    int numeros[] = new int[10];
+
+    //asignamos valores a cada espacio del array
+    numeros[0] = 8;
+    numeros[1] = 3;
+    numeros[2] = 200;
+    numeros[3] = 150;
+    numeros[4] = 11;
+    numeros[5] = 88;
+    numeros[6] = numeros[2] * 10;
+    numeros[7] = numeros[2] / 10;
+    numeros[8] = numeros[0] + numeros[1] + numeros[2];
+    numeros[9] = numeros[8];
+
+    //imprimo todos los valores de array
+    for (int i = 0; i < numeros.length; i++) {
+      System.out.println(numeros[i] + " ");
+    }
+  }
+}
+~~~
+
+A diferencia de otros lenguajes como *Ruby* o *PHP*, todos los elementos de un array deben ser del mismo tipo.
+
+**Ejemplo de creación de un arry de caracteres**
+
+~~~
+public class ejercicio33 {
+  public static void main(String[] args) {
+
+    //defino un array y reservo 6 espacios
+    char []caracter = new char[6];
+
+    //asigno valores dentro del array
+    caracter[0] = 'R';
+    caracter[1] = '%';
+    caracter[2] = '&';
+    caracter[3] = '+';
+    caracter[4] = 'A';
+    caracter[5] = '2';
+
+    //imprimo todos los elementos que contiene el array
+    for (int i = 0; i < caracter.length; i++) {
+      System.out.println(caracter[i]);
+    }
+
+  }
+}
+~~~
+
+## 7.2 Arrays bidimensionales
+Utiliza dos índices para localizar cada elemento. También se puede ver como una cuadrícula en la que los datos quedan distribuidos en filas y columnas.
+
+**Ejemplo de creación de un array bidimensional**
+
+~~~
+public class ejercicio34 {
+  public static void main(String[] args ) {
+    //defino un array de 3 filas con 2 columnas
+    int [][] numeros = new int[3][2];
+
+    //añado valores a cada fila y columna del array
+    numeros[0][0] = 21;
+    numeros[1][0] = 67;
+    numeros[1][1] = 33;
+    numeros[2][1] = 7;
+
+    //defino 2 variables para las filas y las columnas
+    int fila, columna;
+
+    //recorro los arryas y muestro el resultado
+    for (fila = 0; fila < 3; fila++) {
+      System.out.print("Fila: " + fila);
+
+      for (columna = 0; columna < 2; columna++) {
+        System.out.printf("%10d", numeros[fila][columna]);
+      }
+    }
+    System.out.println();
+  }
+}
+~~~
+
+## 7.3 Recorrer arrays con for al estilo foreach
+Al trabajar con *arrays* es muy frecuente cometer errores utilizando los índices. Para recorrer un array sin tener que preocuparnos por los límites, podemos utilizar el bucle *for* con el formato *foreach*. De esta forma, no tenemos que especificar con qué índice comienza y termina el bucle.
+
+**Ejemplo de utilización de for a la manera foreach**
+
+~~~
+import java.util.Scanner;
+
+public class ejercicio35 {
+  public static void main(String[] args ) {
+    Scanner x = new Scanner(System.in);
+
+    //defino el array reservando 4 espacios
+    double []numeros = new double[5];
+
+    System.out.println("Para calcular la nota media necesito conocer las notas de tus examenes");
+
+    //Pedimos las notas por teclado y las guardamos en nuestro array
+    for (int i = 1; i < numeros.length; i++) {
+      System.out.print("Introduce la nota del examen " + i + " : ");
+      numeros[i] = x.nextDouble();
+    }
+
+    //inicializo una variable para sumar las notas
+    double suma = 0;
+
+    //recorro el array al estilo foreach y calculo el total de los examenes
+    for (double i : numeros) {
+      suma += i;
+    }
+
+    //Muestro la media de los examenes
+    System.out.println("La media de los examenes es: " + (suma / 4));
+
+  }
+}
+~~~
+
+Como vemos en el segundo **for** no se utiliza ningún índice, simplemente saca todos los elementos del array uno a uno y los deposita en la variable **i**.
