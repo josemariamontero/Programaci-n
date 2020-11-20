@@ -26,7 +26,10 @@
 	1. [Bucle for](#51-bucle-for)
 	2. [Bucle while](#52-bucle-while)
 	3. [Bucle do-while](#53-bucle-do-while)
-7. [Arrays](#7-arrays)
+6. [Arrays](#6-arrays)
+	1. [Arrays de una dimensión](#61-arrays-de-una-dimensión)
+	2. [Arrays bidimensionales](#62-arrays-bidimensionales)
+	3. [Recorrer arrays con for al estilo foreach](#63-recorrer-arrays-con-for-al-estilo-foreach)
 
 
 ## 1. Salida de datos por pantalla
@@ -680,8 +683,8 @@ public class ejercicio30 {
 }
 ~~~
 
-## 7. Arrays
-## 7.1 Arrays de una dimensión
+## 6. Arrays
+## 6.1 Arrays de una dimensión
 Un array es un tipo de dato capaz de almacenar múltiples valores. Se utiliza para agrupar datos muy parecidos.
 También los arrays de una dimensión se llaman vector.
 
@@ -772,7 +775,7 @@ public class ejercicio33 {
 }
 ~~~
 
-## 7.2 Arrays bidimensionales
+## 6.2 Arrays bidimensionales
 Utiliza dos índices para localizar cada elemento. También se puede ver como una cuadrícula en la que los datos quedan distribuidos en filas y columnas.
 
 **Ejemplo de creación de un array bidimensional**
@@ -805,7 +808,7 @@ public class ejercicio34 {
 }
 ~~~
 
-## 7.3 Recorrer arrays con for al estilo foreach
+## 6.3 Recorrer arrays con for al estilo foreach
 Al trabajar con *arrays* es muy frecuente cometer errores utilizando los índices. Para recorrer un array sin tener que preocuparnos por los límites, podemos utilizar el bucle *for* con el formato *foreach*. De esta forma, no tenemos que especificar con qué índice comienza y termina el bucle.
 
 **Ejemplo de utilización de for a la manera foreach**
