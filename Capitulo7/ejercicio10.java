@@ -20,7 +20,7 @@ public class ejercicio10 {
 	// muestro el array
 	System.out.println("ARRAY ORIGINAL");
 	for (int i = 0; i < numeros.length; i++) {
-		System.out.print(numeros[i]);
+		System.out.print(numeros[i] + " ");
 	}
 
 	System.out.println();
@@ -34,21 +34,23 @@ public class ejercicio10 {
 		}
 	}
 
+	System.out.println("ARRAY MODIFICADO");
+
 	//meto los pares en las primeras posiciones 
 	for (int i = 0; i < numeros.length; i++) {
-		numeros[i] = pares[i];
+		if (pares[i] != 0) {
+			System.out.print(pares[i] + " ");
+		}
 	}
 
 	//meto los impares en las posiciones restantes
 	for (int i = 0; i < numeros.length; i++) {
-		numeros[i] = impares[i] - pares[i];
+		if (impares[i] != 0) {
+			System.out.print(impares[i] + " ");
+		}
 	}
 
-	// muestro finalmente el resultado cambiado
-	System.out.println("ARRAY CAMBIADO");
-	for (int i = 0; i < numeros.length; i++) {
-		System.out.print(numeros[i]);
-	}
-
+	System.out.println();
+	
 	}
 }

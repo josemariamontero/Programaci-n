@@ -12,7 +12,7 @@ public class ejercicio6 {
 
 		//defino el array y reservo 15 espacios
 
-		int []numeros = new int[5];
+		int []numeros = new int[15];
 
 		//Pido números por teclado y los añado al array
 		for (int i = 0; i < numeros.length; i++) {
@@ -20,12 +20,23 @@ public class ejercicio6 {
 			numeros[i] = x.nextInt();
 		}
 
-		//invertimos el número para cambiar la posición
+		//utilizo un auxiliar para coger el último número
+		int auxiliar = numeros[14];
 
-		
+		//recorro el array de manera invertida 
+		for (int i = 14; i > 0; i--) {
+			numeros[i] = numeros[i - 1];
+		}
 
+		numeros[0] = auxiliar ;
 
+		//Recorro el array rotado 
+		for (int i = 0; i < numeros.length; i++) {
+			System.out.print(numeros[i] + " ");
+		} 
 
+		//salto de línea
+		System.out.println();
 	}
 }
 
