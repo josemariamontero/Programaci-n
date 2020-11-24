@@ -30,6 +30,11 @@
 	1. [Arrays de una dimensión](#61-arrays-de-una-dimensión)
 	2. [Arrays bidimensionales](#62-arrays-bidimensionales)
 	3. [Recorrer arrays con for al estilo foreach](#63-recorrer-arrays-con-for-al-estilo-foreach)
+7. [Funciones](#7-funciones)
+	1. [Implementando funciones para reutilizar código](#71-implementando-funciones-para-reutilizar-codigo)
+	2. [Comentarios de funciones](#72-comentarios-de-funciones)
+	3. [Creación de bibliotecas de rutinas mediante paquetes](#73-creacion-de-bibliotecas-de-rutinas-mediante-paquetes)
+	4. [Ámbito de las variables](#74-ambito-de-las-variables)
 
 
 ## 1. Salida de datos por pantalla
@@ -847,3 +852,141 @@ public class ejercicio35 {
 ~~~
 
 Como vemos en el segundo **for** no se utiliza ningún índice, simplemente saca todos los elementos del array uno a uno y los deposita en la variable **i**.
+
+## 7. Funciones
+## 7.1 Implementando funciones para reutilizar código
+En programación es muy frecuente reutilizar código, es decir, usar código ya existente.
+
+Una función es un trozo de código que realiza una tarea muy concreta y que se puede incluir en cualquier programa cuando hace falta resolver esa tarea. Opcionalmente, las funciones aceptan una entrada y devuelven una salida.
+
+**Ejemplo de funciones**
+
+~~~
+import java.util.Scanner;
+
+public class ejercicio36 {
+// FUNCIONES 
+
+/* Comprobamos si un numero entero positivo es primo o no
+Un número es primo cuando únicamente es divisible entre él mismo y la unidad*/
+	public static boolean primo(int x) {
+		for (int i = 2; i < x; i++) {
+			if ((x % i) == 0) {
+				return false;
+			}
+		}
+		return true;
+		}
+
+	public static void main(String[] args ) {
+		Scanner x = new Scanner(System.in);
+
+		//pido un número por teclado
+		System.out.print("Introduce un número: ");
+		int numeroTeclado = x.nextInt();
+
+		//comprobamos que el número introducido por teclado es primo
+		if (primo(numeroTeclado)) {
+			System.out.println("El numero " + numeroTeclado + " es primo.");
+		} else {
+			System.out.println("El numero " + numeroTeclado + " no es primo.");
+		}
+	}
+}
+~~~
+
+## 7.2 Comentarios de funciones 
+Los comentarios son importantes en los programas ya que permiten describir, aclarar o dar información relevante sobre qué hace exactamente el código.
+
+Existe una herramienta llamada *javadoc* que crea documentos en **HTML** con información sobre programas escritos en Java.
+
+Con la etiqueta *@param* seguida de un nombre de parámetro se indica qué parámetro espera como entrada la función. Si la función acepta varios parámetros, se especificará varias etiquetas *@param*
+
+Con la etiqueta *@return* especificamos qué devuelve exactamente la función
+
+Para generar documentación con la herramienta **javadoc** ejecutaremos
+
+> javadoc -encoding UTF-8 -charset UTF-8 -docencoding UTF-8 ejercicio36.java 
+
+En el comando ejecutado anteriormente hemos generado un fichero HTML con el ejercicio que hemos realizado anteriormente con la funcion primo. 
+
+## 7.3 Creación de bibliotecas de rutinas mediante paquetes
+Las funciones de un determinado tipo se puden agrupar para crear un paquete(*package*) que luego se importará desde el programa que necesite esas funciones.
+
+Cada paquete se corresponde con un directorio, es decir, si un paquete se llama "matemáticas" debe haber un directorio llamado "matemáticas" también en la misma ubicación del programa que importará ese paquete.
+
+Las funciones se pueden agrupar dentro de un paquete de dos maneras diferentes. 
+Puede haber subpaquetes dentro de un paquete.
+
+**Ejemplo de funciones mediante paquetes**
+
+~~~
+//defino el paquete
+package matematicas;
+
+public class ejercicio37 {
+	//funcion numeros primos
+
+	public static boolean primo(int x) {
+		for (int i = 2; i < x; i++) {
+			if (x % 2 == 0) {
+				primo = false;
+			}
+		}
+		return true;
+	}
+
+	//funcion para devolver los dígitos que contiene un número
+	public static int digitos(int x) {
+		if (x == 0) {
+			return 1;
+		} else {
+			int numero = 0;
+			while (x > 0) {
+				x /= 10;
+				numero++;
+			}
+		}
+		return numero;
+	}
+}
+~~~
+
+**Ejemplo para importar las funciones anteriores**
+
+~~~
+//importo las funciones que se encuentran en el paquete matemáticas
+import matematicas.ejercicio37;
+
+import java.util.Scanner;
+
+//probamos las funciones
+public class ejercicio38 {
+	public static void main(String[] args ) {
+		Scanner x = new Scanner(System.in);
+
+		//pedimos un número por teclado 
+		System.out.print("Introduce un número: ");
+		int numeroTeclado = x.nextInt();
+
+		//prueba de la funcion primo
+		if (matematicas.ejercicio37.primo(numeroTeclado)) {
+			System.out.println("Es primo");
+		} else {
+			System.out.println("No es primo");
+		}
+
+		//prueba de la funcion para calcular dígitos
+		System.out.println("Introduce un número: ");
+		int numeroTeclado2 = x.nextInt();
+
+		System.out.println("El numero " + numeroTeclado2 + " tiene " + matematicas.ejercicio37.digitos(numeroTeclado));
+	}
+}
+~~~
+
+## 7.4 Ámbito de las variables
+El ámbito de una variable es el espacio donde "existe" esa variable, dicho de otro modo, el contexto dentro del cual la variable es válida. 
+Cuando se implementan funciones hay que tener muy claro que las variables utilizadas como parámetros y las variables que se definen dentro de la función, son locales a esa función y fuera de la función no existen.
+
+
