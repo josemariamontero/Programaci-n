@@ -10,6 +10,7 @@ public class ejercicio16 {
 	public static void main(String[] args) {
 		Scanner x = new Scanner(System.in);
 
+
 		//defino un array y reservo 20 espacios
 		int []numeros = new int[20];
 
