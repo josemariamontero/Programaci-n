@@ -244,29 +244,7 @@ public class practica {
 			/*La opción calcular la media de números primos. Mostrará la media aritmética de los
 			números primos existentes en el array, para ello se usará también la función desarrollada
 			en el punto anterior. */
-			//creo una variable para sumar los números primos
-			int mediaPrimos = 0;
-
-			//creo un array para calcular la media de los números primos
-			int mediaPrimos = new int[32];
-
-			//relleno el array numerosPrimos con los numeros primos que contenga el array numeros
-			System.out.println("ARRAY DE PRIMOS");
-			for (int i = 0; i < numeros.length; i++) {
-				if (esPrimo(numeros[i]) && numeros[i] != 0) {
-					mediaPrimos[i] = numeros[i];
-				}
-			}
-
-			//recorro el array y sumo todos los primos
-			System.out.print("Suma de los números primos: ");
-			for (int i = 0; i < numerosPrimos.length; i++) {
-				if (numerosPrimos[i] != 0) {
-					System.out.print(numerosPrimos[i] + " ");
-				}
-			}
-
-
+			
 
 			//salto de línea
 			System.out.println();
