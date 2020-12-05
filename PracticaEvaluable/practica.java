@@ -18,6 +18,16 @@ Mostrará el siguiente menu
 import java.util.Scanner;
 
 public class practica {
+	//defino la función para los números primos
+	public static boolean esPrimo(int x) {
+		for (int i = 2; i < x; i++) {
+			if (x % 2 == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public static void main(String[] args) {
 		Scanner x = new Scanner(System.in);
 
@@ -115,6 +125,8 @@ public class practica {
 			en medio.*/
 				System.out.print("Qué desea hacer: 1. Introducir elementos - 2. Borrar elementos: ");
 				int opcion2 = x.nextInt();
+				int contador = 0;
+				int j = 0;
 
 				if (opcion2 == 1) {
 					//pido el número que queremos introducir
@@ -131,27 +143,135 @@ public class practica {
 						System.out.print(numeros[i] + " ");
 					}
 
-					//recorro el array e introduzco el número en la posición indicada
-					for (int i = 0; i < numeros.length; i++) {
-
+					//calculo la posicion del número
+					while (numeros[j] < numeroTeclado && j < numeros.length) {
+						posicion++;
+						j++;
 					}
 
-					//salto de línea
-					System.out.println();
+					//desplazo una posición a la derecha los dígitos de detrás del número introducido por teclado 
+					for (int i = numeros.length; i >= posicion; i--) {
+						numeros[i + 1] = numeros[i];
+					}
 
-					//vuelvo a recorrer el array y muestro el array cambiado
+					//introduzco el número en la posición indicada
+					numeros[posicion] = numeroTeclado;
+
+					//recorremos el array y mostramos el resultado
 					System.out.println("ARRAY CAMBIADO");
+					for (int i = 0; i < 33; i++) {
+						System.out.print(numeros[i] + " ");
+					}
+
+				} else if (opcion2 == 2) { 
+					//muestro el array tal cual esta
+					System.out.println("ARRAY ORIGINAL");
 					for (int i = 0; i < numeros.length; i++) {
 						System.out.print(numeros[i] + " ");
 					}
 
+					//borro todos los elementos que contenga en su interior
+					for (int i = 0; i < numeros.length; i++) {
+						numeros[i] = numeros[1];
+					}
 
+					//recorro el array y muestro el array
+					System.out.println("ARRAY BORRADO");
+					for (int i = 0; i < numeros.length; i++)  {
+						System.out.print(numeros[i] + " ");
+					}
 
 				}
 				//salto de línea
 				System.out.println();
 
 				break;
+
+			case 5: 
+			/*La opción listar contenido debe mostrar por pantalla el contenido completo del array (sólo
+			hasta el numero de elementos que se hayan introducido.*/
+				System.out.println("ARRAY");
+				//recorro el array y muestro los elementos
+				for (int i = 0; i < numeros.length; i++) {
+					if(numeros[i] != 0) {
+						System.out.print(numeros[i] + " ");
+					}
+				}
+
+				//salto de línea 
+				System.out.println();
+
+				break;
+
+			case 6: 
+			/*La opción mostrar los números primos que contiene el array. Mostrará por pantalla todos
+			los números primos que hay en el array. Para ello se debe implementar una función que
+			rellene un array distinto con los números primos, además esa función devolverá la
+			cantidad de números primos existentes.*/
+
+			//defino un array para guardar los números primos
+			int []numerosPrimos = new int[32];
+
+			//recorro el array y muestro su contenido
+			System.out.println("ARRAY ORIGINAL");
+			for (int i = 0; i < numeros.length; i++) {
+				System.out.print(numeros[i] + " ");
+			}
+
+			//salto de línea
+			System.out.println();
+
+			//relleno el array numerosPrimos con los numeros primos que contenga el array numeros
+			System.out.println("ARRAY DE PRIMOS");
+			for (int i = 0; i < numeros.length; i++) {
+				if (esPrimo(numeros[i]) && numeros[i] != 0) {
+					numerosPrimos[i] = numeros[i];
+				}
+			}
+
+			//recorro el array y muestro su contenido
+			for (int i = 0; i < numerosPrimos.length; i++) {
+				if (numerosPrimos[i] != 0) {
+					System.out.print(numerosPrimos[i] + " ");
+				}
+			}
+
+			//salto de línea
+			System.out.println();
+			break;
+
+			case 7: 
+			/*La opción calcular la media de números primos. Mostrará la media aritmética de los
+			números primos existentes en el array, para ello se usará también la función desarrollada
+			en el punto anterior. */
+			//creo una variable para sumar los números primos
+			int mediaPrimos = 0;
+
+			//creo un array para calcular la media de los números primos
+			int mediaPrimos = new int[32];
+
+			//relleno el array numerosPrimos con los numeros primos que contenga el array numeros
+			System.out.println("ARRAY DE PRIMOS");
+			for (int i = 0; i < numeros.length; i++) {
+				if (esPrimo(numeros[i]) && numeros[i] != 0) {
+					mediaPrimos[i] = numeros[i];
+				}
+			}
+
+			//recorro el array y sumo todos los primos
+			System.out.print("Suma de los números primos: ");
+			for (int i = 0; i < numerosPrimos.length; i++) {
+				if (numerosPrimos[i] != 0) {
+					System.out.print(numerosPrimos[i] + " ");
+				}
+			}
+
+
+
+			//salto de línea
+			System.out.println();
+			break;
+
 
 
 			case 0:
