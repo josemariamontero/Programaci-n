@@ -16,6 +16,7 @@ Mostrará el siguiente menu
 0. Salir */
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class practica {
 	//defino la función para los números primos
@@ -66,9 +67,14 @@ public class practica {
 				}
 
 				//recorro y muestro el array
+				System.out.println("ARRAY");
 				for (int i = 0; i < numeros.length; i++) {
-					System.out.println(numeros[i]);
+					System.out.print(numeros[i] + " ");
 				}
+
+				//salto de línea
+				System.out.println();
+
 				break;
 
 			case 2:
@@ -250,6 +256,83 @@ public class practica {
 			System.out.println();
 			break;
 
+			case 8:
+			/*La opción filtrar números iguales deberá eliminar todos los números repetidos, hay que
+			tener en cuenta que se debe compactar el array, es decir, no puede haber huecos entre
+			valores una vez eliminados los repetidos.*/
+			//convierto el array de enteros en array de cadenas
+			String []numerosCadenas = new String[numeros.length];
+
+			//recorro el array y cambio el tipo de dato
+			for (int i = 0; i < numeros.length; i++) {
+            	numerosCadenas[i] = String.valueOf(numeros[i]);
+			}
+
+			//Muestro el resultado del array de cadenas
+			System.out.println("ARRAY ORIGINAL");
+			for (int i = 0; i < numerosCadenas.length; i++) {
+				System.out.print(numerosCadenas[i] + " ");
+			}
+
+			//recorro el array de cadenas y compruebo si hay números iguales en el array
+			for (int i = 0; i < numerosCadenas.length; i++) {
+				for (int a = 0; a < numerosCadenas.length; a++) {
+					//compruebo que i sea distinto que j
+					if (i != a) {
+						//comparo i con j para comprobar que existan valores repetidos
+						if (numerosCadenas[i].equals(numerosCadenas[a])){
+							//elimino el valor repetido
+							numerosCadenas[i] = "";
+						}
+					}
+				}
+			}
+
+			//salto de línea
+			System.out.println();
+
+			//ordeno el array
+			Arrays.sort(numerosCadenas);
+
+			//recorro el bucle y muestro el resultado
+			System.out.println("ARRAY SIN VALORES REPETIDOS");
+			for (int i = 0; i < numerosCadenas.length; i++) {
+				System.out.print(numerosCadenas[i] + " ");
+			}
+
+			//salto de línea
+			System.out.println();
+			break;
+
+			case 9:
+			/*La opción buscar elemento pedirá un número e indicará en que posición se encuentra
+			dentro del array, si no lo encuentra también lo indicará.*/
+			//declaro la variable posción = -1 
+			int posicion = -1;
+
+			//pido por teclado el número del cuál deseo conocer la posición
+			System.out.print("Introduce un número para localizar su posición en el array: ");
+			int numeroEjer9 = x.nextInt();
+
+			//recorro el array
+			for (int i = 0; i < numeros.length; i++) {
+				//compruebo si el número por teclado śe encuentra dentro del array
+				if (numeros[i] == numeroEjer9) {
+					//guardo su posición
+					posicion = i;
+				}
+			}
+
+			//Muestro si el número se encuentra en el array y su posicion y sino también
+			if (posicion == -1) {
+				System.out.println("No se ha encontrado el número dentro del array");
+			} else {
+				System.out.println("El número " + numeroEjer9 + " se encuentra en la posicion " + posicion);
+			}
+
+			//salto de línea
+			System.out.println();
+			break;
 
 
 			case 0:
