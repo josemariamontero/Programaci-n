@@ -1,0 +1,115 @@
+import java.util.Scanner;
+
+public class Ejemplos {
+
+	public static void main(String[] args) {
+
+		String cad;
+		String cadInvertida = "";
+		Scanner sc = new Scanner(System.in);
+		
+		// leer frase por teclado
+		System.out.println("Introduce una frase: ");
+		cad = sc.nextLine();
+		
+		System.out.println("La cadena introducida es: " + cad);
+		
+		// convertir String en un array de char
+		char cadenaChar[] = cad.toCharArray();
+		
+		String cadenaAux = "";
+		
+		// reservar memoria para charAux con tamaño cadenaChar
+		char charAux [] = new char[cadenaChar.length];
+		
+		
+		// copiar cadenaChar en cadenaAux y en charAux
+		for(int i = 0; i < cadenaChar.length; i++) {
+			cadenaAux += cadenaChar[i];
+			charAux[i]=cadenaChar[i];
+		}
+		
+		
+		
+		
+		// recorrer array char
+		for(int i = cadenaChar.length -1; i >= 0; i--) {
+			cadInvertida += cadenaChar[i];
+		}
+		
+		System.out.println("Esa cadena invertida es: " + cadInvertida);
+		
+		// contar el numero de espacios
+		int nEspacios = 0;
+		for(int i = 0; i < cadenaChar.length; i++) {
+			if(cadenaChar[i] == ' ') {
+				nEspacios++;
+			}
+		}
+		
+		System.out.println("Candidad de espacios de la cadena: " + nEspacios);
+		
+		// tamaño de una cadena length()
+		int longitud = cad.length();
+		
+		System.out.println("Tamaño de la cadena (usando length): " + longitud);
+		
+		// caracter en posicion determinada charAt(indice)
+		char caracter = cad.charAt(2);
+		
+		System.out.println("El caracter en la posicion 2 es: " + caracter);
+		
+		// comparacion de cadenas equals(cadena)
+		boolean iguales = cad.equals("Hola como estas");
+		
+		System.out.println("La cadena es igual a (Hola como estas): " + iguales);
+		
+		// convertir cadena a mayusculas toUpperCase()
+		String cadenaMayusculas = cad.toUpperCase();
+		
+		System.out.println("La cadena en mayusculas es: " + cadenaMayusculas);
+		
+		// convertir cadena a minusculas toLowerCase()
+		String cadenaMinusculas = cad.toLowerCase();
+		
+		System.out.println("La cadena en minusculas es: " + cadenaMinusculas);
+		
+		// indexOf -> devuelve la posicion de un caracter o subcadena dentro de la cadena
+		// si no está devuelve -1
+		int indiceCaracter = cad.indexOf('a');
+		int indiceSubcadena = cad.indexOf("la");
+		
+		// lastIndexOf --> igual que la anterior pero devuelve la posicion de la última ocurrencia
+		int indCharUltimo = cad.lastIndexOf('a');
+		int indSubUltimo = cad.lastIndexOf("la");
+		
+		// replace(caracterAnterior, caracterNuevo) --> reemplaza un caracter por otro
+		String cadAux = cad.replace(' ', ';');
+		
+		System.out.println("La cadena reemplazando espacios por ; es: " + cadAux);
+		
+		// substring(inicio, fin)
+		String subcadena = cad.substring(3, 6);
+
+		System.out.println("La subcadena del 3 al 6 es: " + subcadena);
+		
+		// split(expresionRegular) separar cadenas en un array de String
+		String cadenas[] = cad.split("-");
+		
+		
+		
+		
+		
+		// invertir cadenas sin usar char[]
+		cadInvertida = "";
+		
+		for(int i = cad.length()-1; i >= 0; i--) {
+			cadInvertida += cad.charAt(i);
+		}
+		
+		sc.close();
+				
+	}
+
+}
+
