@@ -129,65 +129,71 @@ public class practica {
 			en cuenta que no se pueden perder valores por lo que al introducir se debe hacer hueco
 			desplazando los otros elementos. Al borrar se debe compactar para que no haya huecos
 			en medio.*/
-				System.out.print("Qué desea hacer: 1. Introducir elementos - 2. Borrar elementos: ");
+				System.out.println("¿Qué desea hacer?");
+				System.out.println("1. Introducir elementos");
+				System.out.println("2. Borrar elementos");
+				System.out.print("Introduzca el número de la opción que desea realizar: ");
 				int opcion2 = x.nextInt();
 				int contador = 0;
-				int j = 0;
+				
 
-				if (opcion2 == 1) {
-					//pido el número que queremos introducir
-					System.out.print("Introduce un número positivo que desesa introducir en el array: ");
-					int numeroTeclado = x.nextInt();
+				switch (opcion2) {
+					case 1: 
+						//recorro el array y muestro como está el array
+						System.out.println("ARRAY ORIGINAL");
+						for (int i = 0; i < numeros.length; i++) {
+							System.out.print(numeros[i] + " ");
+						}
 
-					//pido la posición en la cuál queremos introducir el número anterior
-					System.out.print("Introduce la posicion en la cual quieres introducir el número anterior: ");
-					int posicion = x.nextInt();
+						//salto de línea
+						System.out.println();
 
-					//recorro el array y muestro como está el array
-					System.out.println("ARRAY ORIGINAL");
-					for (int i = 0; i < numeros.length; i++) {
-						System.out.print(numeros[i] + " ");
-					}
+						//pido el número que queremos introducir
+						System.out.print("Introduce un número positivo que desesa introducir en el array: ");
+						int numeroTeclado = x.nextInt();
 
-					//calculo la posicion del número
-					while (numeros[j] < numeroTeclado && j < numeros.length) {
-						posicion++;
-						j++;
-					}
+						//pido la posición en la cuál queremos introducir el número anterior
+						System.out.print("Introduce la posicion en la cual quieres introducir el número anterior: ");
+						int posicion = x.nextInt();
 
-					//desplazo una posición a la derecha los dígitos de detrás del número introducido por teclado 
-					for (int i = numeros.length; i >= posicion; i--) {
-						numeros[i + 1] = numeros[i];
-					}
+						//recorro el array e inserto el número introducido por teclado en la posición indicada
+						System.out.println("ARRAY MODIFICADO");
+						for (int i = 0; i < numeros.length - 1; i++) {
+							if (i == posicion) {
+								for (int j = numeros.length - 1; j >= posicion; j--) {
+									numeros[j] = numeros[j - 1];
+								}
+							numeros[posicion] = numeroTeclado;
+							}
+						}
 
-					//introduzco el número en la posición indicada
-					numeros[posicion] = numeroTeclado;
+						//Muestro el array modificado
+						for (int i = 0; i < numeros.length; i++) {
+							System.out.print(numeros[i] + " ");
+						}
 
-					//recorremos el array y mostramos el resultado
-					System.out.println("ARRAY CAMBIADO");
-					for (int i = 0; i < 33; i++) {
-						System.out.print(numeros[i] + " ");
-					}
+						break;
+					case 2:
+						//preguntamos la posición del número a borrar
+						System.out.print("Introduce la posicion en la cual quieres borrar el número: ");
+						posicion = x.nextInt();
 
-				} else if (opcion2 == 2) { 
-					//muestro el array tal cual esta
-					System.out.println("ARRAY ORIGINAL");
-					for (int i = 0; i < numeros.length; i++) {
-						System.out.print(numeros[i] + " ");
-					}
+						//recorremos el bucle y machacamos el número que se encuentra en la posición introducida por teclado
+						for (int i = posicion; i < numeros.length - 1; i++) {
+							numeros[i] = numeros[i + 1];
 
-					//borro todos los elementos que contenga en su interior
-					for (int i = 0; i < numeros.length; i++) {
-						numeros[i] = numeros[1];
-					}
+						}
 
-					//recorro el array y muestro el array
-					System.out.println("ARRAY BORRADO");
-					for (int i = 0; i < numeros.length; i++)  {
-						System.out.print(numeros[i] + " ");
-					}
+						//recorremos el array y mostramos resultado
+						System.out.println("ARRAY CAMBIADO");
+						for (int i = 0; i < numeros.length; i++) {
+							System.out.print(numeros[i] + " ");
+						}
 
+						break;
 				}
+
+
 				//salto de línea
 				System.out.println();
 
@@ -407,6 +413,8 @@ public class practica {
 				for (int i = 0; i < numeros.length; i++) {
 					if (sumaAdyacentes < numeroEjer10) {
 						System.out.println("Números adyacentes: " + numeros[i]);
+					} else {
+						System.out.println("No hay números adyacentes");
 					}
 				}
 				
