@@ -35,6 +35,9 @@ public class practica {
 		//defino el array y reservo 32 espacios
 		int []numeros = new int[32];
 
+		//defino un array para guardar los números primos
+		int []numerosPrimos = new int[32];
+
 		//creo el menú y pregunto la opción que desea escoger
 		int opcion;
 		boolean salir = false;
@@ -221,8 +224,8 @@ public class practica {
 			rellene un array distinto con los números primos, además esa función devolverá la
 			cantidad de números primos existentes.*/
 
-			//defino un array para guardar los números primos
-			int []numerosPrimos = new int[32];
+			/*defino un array para guardar los números primos
+			int []numerosPrimos = new int[32];*/
 
 			//recorro el array y muestro su contenido
 			System.out.println("ARRAY ORIGINAL");
@@ -256,7 +259,42 @@ public class practica {
 			/*La opción calcular la media de números primos. Mostrará la media aritmética de los
 			números primos existentes en el array, para ello se usará también la función desarrollada
 			en el punto anterior. */
+
+			//declaro una variable digitos para saber el número de primos
+			int digitos = 0;
+
+			//declaro la variable de sumaPrimos para sumar los números primos
+			int sumaPrimos = 0;
+
+			//declaro la variable mediaPrimos para realizar la media de los primos
+			double mediaPrimos = 0;
+
+			//relleno el array numerosPrimos con los numeros primos que contenga el array numeros
+			System.out.println("ARRAY DE PRIMOS");
+			for (int i = 0; i < numeros.length; i++) {
+				if (esPrimo(numeros[i]) && numeros[i] != 0) {
+					numerosPrimos[i] = numeros[i];
+					sumaPrimos += numerosPrimos[i];
+				}
+			}
+
+
+			//recorro el array de primos y muestro su contenido y cuento el número de primos que tiene
+			for (int i = 0; i < numerosPrimos.length; i++) {
+				if (numerosPrimos[i] != 0) {
+					System.out.print(numerosPrimos[i] + " ");
+					digitos++;
+				}
+			}
+
+			mediaPrimos = sumaPrimos / digitos;
+
+			//salto de línea
+			System.out.println();
 			
+
+			System.out.print("La media de los números primos es: " + mediaPrimos);
+
 
 			//salto de línea
 			System.out.println();
