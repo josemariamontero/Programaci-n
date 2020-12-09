@@ -339,54 +339,82 @@ public class practica {
 			número y la posición de ese número dentro del array que cumpla que la suma del
 			elemento siguiente + el elemento anterior es menor a número en cuestión.*/
 
-			//uso la variable posición utilizada anteriormente
-			posicion = -1;
+				//uso la variable posición utilizada anteriormente
+				posicion = -1;
 
-			//declaro una variable para guardar el número que queremos sumar sus adyacentes
-			int numeroArray = 0;
+				//defino la variable para guardar el número que pedimos por teclado
+				int numeroEjer10 = 0;
+
+				//declaro una variable para guardar el número que queremos sumar sus adyacentes
+				int numeroArray = 0;
 			
-			//declaro las variables para obtener la posición y el número posterior
-			int posicionPosterior = 0;
-			int numeroArrayPosterior = 0;
+				//declaro las variables para obtener la posición y el número posterior
+				int posicionPosterior = 0;
+				int numeroArrayPosterior = 0;
 
-			//declaro las variables para obtener la posición y el número anterior
-			int posicionAnterior = 0;
-			int numeroArrayAnterior = 0;
+				//declaro las variables para obtener la posición y el número anterior
+				int posicionAnterior = 0;
+				int numeroArrayAnterior = 0;
 
-			//pido la posición para indicar la posición y el número que queremos conocer dentro del array
-			System.out.print("Introduce un número para localizar su posición en el array: ");
-			int numeroEjer10 = x.nextInt();
+				//declaro la variable para la suma de los numeros adyacentes
+				int sumaAdyacentes = 0;
 
-			//recorro el array
-			for (int i = 0; i < numeros.length; i++) {
-				//compruebo si el número por teclado śe encuentra dentro del array
-				if (numeros[i] == numeroEjer10) {
-					//guardo su posición
-					posicion = i;
-					//guardo el número
-					numeroArray = numeros[i];
+				//pido la posición para indicar la posición y el número que queremos conocer dentro del array
+				System.out.print("Introduce un número para localizar su posición en el array: ");
+				numeroEjer10 = x.nextInt();
+
+				//recorro el array
+				for (int i = 0; i < numeros.length; i++) {
+					//compruebo si el número por teclado śe encuentra dentro del array
+					if (numeros[i] == numeroEjer10) {
+						//guardo su posición
+						posicion = i;
+						//guardo el número
+						numeroArray = numeros[i];
+					}
 				}
-			}
 
-			System.out.println("El número " + numeroEjer10 + " se encuentra en la posición " + posicion);
+				System.out.println("El número " + numeroEjer10 + " se encuentra en la posición " + posicion);
 
-			//Recorro el array y obtengo el número y la posición posterior
-			for (int i = 0; i < numeros.length; i++) {
-				if (numeros[i] == numeroEjer10) {
-					//guardo su posición
-					posicionPosterior = posicion + 1;
-					//guardo el número
-					numeroArrayPosterior = numeros[i+1];
+				//Recorro el array y obtengo el número y la posición posterior
+				for (int i = 0; i < numeros.length; i++) {
+					if (numeros[i] == numeroEjer10) {
+						//guardo su posición
+						posicionPosterior = posicion + 1;
+						//guardo el número
+						numeroArrayPosterior = numeros[i+1];
+					}
 				}
-			}
 
-			System.out.println("POSTERIOR: "+ posicionPosterior + " : " + numeroArrayPosterior);
+				//System.out.println("POSTERIOR: "+ posicionPosterior + " : " + numeroArrayPosterior);
+
+				//recorro el array y obtengo el numero y la posicion anterior
+				for (int i = numeros.length - 1; i >= 0; i--) {
+					if (numeros[i] == numeroEjer10) {
+						//guardo su posición
+						posicionAnterior = posicion - 1;
+						//guardo el número
+						numeroArrayAnterior = (numeros[i-1]);
+					}
+				}
+
+				//System.out.println("ANTERIOR: "+ posicionAnterior + " : " + numeroArrayAnterior);
+
+				//sumo los valores adyacentes
+				sumaAdyacentes = numeroArrayPosterior + numeroArrayAnterior;
+
+				//recorro el array y muestro los números adyacentes
+				for (int i = 0; i < numeros.length; i++) {
+					if (sumaAdyacentes < numeroEjer10) {
+						System.out.println("Números adyacentes: " + numeros[i]);
+					}
+				}
+				
 
 
-			//salto de línea
-			System.out.println();
-			break;
-
+				//salto de línea
+				System.out.println();
+				break;
 
 			case 0:
 				salir = true;
