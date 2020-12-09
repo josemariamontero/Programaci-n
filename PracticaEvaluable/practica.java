@@ -64,7 +64,7 @@ public class practica {
 			array en el orden en que han sido introducidos hasta que el usuario introduzca un número
 			negativo. (el negativo no se introduce). Se debe comprobar que el número reúne los
 			requisitos (comprendido entre 0 y 100)*/
-				for (int i = 1; i < numeros.length; i++) {
+				for (int i = 0; i < numeros.length; i++) {
 					System.out.print("Introduce el número " + i + " : ");
 					numeros[i] = x.nextInt();
 				}
@@ -278,7 +278,6 @@ public class practica {
 				}
 			}
 
-
 			//recorro el array de primos y muestro su contenido y cuento el número de primos que tiene
 			for (int i = 0; i < numerosPrimos.length; i++) {
 				if (numerosPrimos[i] != 0) {
@@ -292,9 +291,7 @@ public class practica {
 			//salto de línea
 			System.out.println();
 			
-
 			System.out.print("La media de los números primos es: " + mediaPrimos);
-
 
 			//salto de línea
 			System.out.println();
@@ -456,8 +453,6 @@ public class practica {
 					}
 				}
 				
-
-
 				//salto de línea
 				System.out.println();
 				break;
@@ -465,8 +460,6 @@ public class practica {
 			case 0:
 				salir = true;
 				break;
-
-
 
 			}
 		} while (!salir);
