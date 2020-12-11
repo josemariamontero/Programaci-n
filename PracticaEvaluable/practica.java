@@ -66,7 +66,12 @@ public class practica {
 			requisitos (comprendido entre 0 y 100)*/
 				for (int i = 0; i < numeros.length; i++) {
 					System.out.print("Introduce el número " + i + " : ");
-					numeros[i] = x.nextInt();
+					int numeroTemporal = x.nextInt();
+					if (numeroTemporal >= 0 && numeroTemporal <= 100) {
+						numeros[i] = numeroTemporal;
+					} else {
+						System.out.println("Has introducido un número negativo");
+					}
 				}
 
 				//recorro y muestro el array
@@ -132,6 +137,7 @@ public class practica {
 			en cuenta que no se pueden perder valores por lo que al introducir se debe hacer hueco
 			desplazando los otros elementos. Al borrar se debe compactar para que no haya huecos
 			en medio.*/
+				//creo un menú pidiendo la opción que desea escoger el usuario
 				System.out.println("¿Qué desea hacer?");
 				System.out.println("1. Introducir elementos");
 				System.out.println("2. Borrar elementos");
@@ -224,156 +230,153 @@ public class practica {
 			rellene un array distinto con los números primos, además esa función devolverá la
 			cantidad de números primos existentes.*/
 
-			/*defino un array para guardar los números primos
-			int []numerosPrimos = new int[32];*/
-
-			//recorro el array y muestro su contenido
-			System.out.println("ARRAY ORIGINAL");
-			for (int i = 0; i < numeros.length; i++) {
-				System.out.print(numeros[i] + " ");
-			}
-
-			//salto de línea
-			System.out.println();
-
-			//relleno el array numerosPrimos con los numeros primos que contenga el array numeros
-			System.out.println("ARRAY DE PRIMOS");
-			for (int i = 0; i < numeros.length; i++) {
-				if (esPrimo(numeros[i]) && numeros[i] != 0) {
-					numerosPrimos[i] = numeros[i];
+				//recorro el array y muestro su contenido
+				System.out.println("ARRAY ORIGINAL");
+				for (int i = 0; i < numeros.length; i++) {
+					System.out.print(numeros[i] + " ");
 				}
-			}
 
-			//recorro el array y muestro su contenido
-			for (int i = 0; i < numerosPrimos.length; i++) {
-				if (numerosPrimos[i] != 0) {
-					System.out.print(numerosPrimos[i] + " ");
+				//salto de línea
+				System.out.println();
+
+				//relleno el array numerosPrimos con los numeros primos que contenga el array numeros
+				System.out.println("ARRAY DE PRIMOS");
+				for (int i = 0; i < numeros.length; i++) {
+					if (esPrimo(numeros[i]) && numeros[i] != 0) {
+						numerosPrimos[i] = numeros[i];
+					}
 				}
-			}
 
-			//salto de línea
-			System.out.println();
-			break;
+				//recorro el array y muestro su contenido
+				for (int i = 0; i < numerosPrimos.length; i++) {
+					if (numerosPrimos[i] != 0) {
+						System.out.print(numerosPrimos[i] + " ");
+					}
+				}
+
+				//salto de línea
+				System.out.println();
+				break;
 
 			case 7: 
 			/*La opción calcular la media de números primos. Mostrará la media aritmética de los
 			números primos existentes en el array, para ello se usará también la función desarrollada
 			en el punto anterior. */
 
-			//declaro una variable digitos para saber el número de primos
-			int digitos = 0;
+				//declaro una variable digitos para saber el número de primos
+				int digitos = 0;
 
-			//declaro la variable de sumaPrimos para sumar los números primos
-			int sumaPrimos = 0;
+				//declaro la variable de sumaPrimos para sumar los números primos
+				int sumaPrimos = 0;
 
-			//declaro la variable mediaPrimos para realizar la media de los primos
-			double mediaPrimos = 0;
+				//declaro la variable mediaPrimos para realizar la media de los primos
+				double mediaPrimos = 0;
 
-			//relleno el array numerosPrimos con los numeros primos que contenga el array numeros
-			System.out.println("ARRAY DE PRIMOS");
-			for (int i = 0; i < numeros.length; i++) {
-				if (esPrimo(numeros[i]) && numeros[i] != 0) {
-					numerosPrimos[i] = numeros[i];
-					sumaPrimos += numerosPrimos[i];
+				//relleno el array numerosPrimos con los numeros primos que contenga el array numeros
+				System.out.println("ARRAY DE PRIMOS");
+				for (int i = 0; i < numeros.length; i++) {
+					if (esPrimo(numeros[i]) && numeros[i] != 0) {
+						numerosPrimos[i] = numeros[i];
+						sumaPrimos += numerosPrimos[i];
+					}
 				}
-			}
 
-			//recorro el array de primos y muestro su contenido y cuento el número de primos que tiene
-			for (int i = 0; i < numerosPrimos.length; i++) {
-				if (numerosPrimos[i] != 0) {
-					System.out.print(numerosPrimos[i] + " ");
-					digitos++;
+				//recorro el array de primos y muestro su contenido y cuento el número de primos que tiene
+				for (int i = 0; i < numerosPrimos.length; i++) {
+					if (numerosPrimos[i] != 0) {
+						System.out.print(numerosPrimos[i] + " ");
+						digitos++;
+					}
 				}
-			}
 
-			mediaPrimos = sumaPrimos / digitos;
+				mediaPrimos = sumaPrimos / digitos;
 
-			//salto de línea
-			System.out.println();
+				//salto de línea
+				System.out.println();
 			
-			System.out.print("La media de los números primos es: " + mediaPrimos);
+				System.out.print("La media de los números primos es: " + mediaPrimos);
 
-			//salto de línea
-			System.out.println();
-			break;
+				//salto de línea
+				System.out.println();
+				break;
 
 			case 8:
 			/*La opción filtrar números iguales deberá eliminar todos los números repetidos, hay que
 			tener en cuenta que se debe compactar el array, es decir, no puede haber huecos entre
 			valores una vez eliminados los repetidos.*/
 			//convierto el array de enteros en array de cadenas
-			String []numerosCadenas = new String[numeros.length];
+				String []numerosCadenas = new String[numeros.length];
 
-			//recorro el array y cambio el tipo de dato
-			for (int i = 0; i < numeros.length; i++) {
-            	numerosCadenas[i] = String.valueOf(numeros[i]);
-			}
+				//recorro el array y cambio el tipo de dato
+				for (int i = 0; i < numeros.length; i++) {
+            		numerosCadenas[i] = String.valueOf(numeros[i]);
+				}
 
-			//Muestro el resultado del array de cadenas
-			System.out.println("ARRAY ORIGINAL");
-			for (int i = 0; i < numerosCadenas.length; i++) {
-				System.out.print(numerosCadenas[i] + " ");
-			}
+				//Muestro el resultado del array de cadenas
+				System.out.println("ARRAY ORIGINAL");
+				for (int i = 0; i < numerosCadenas.length; i++) {
+					System.out.print(numerosCadenas[i] + " ");
+				}
 
-			//recorro el array de cadenas y compruebo si hay números iguales en el array
-			for (int i = 0; i < numerosCadenas.length; i++) {
-				for (int a = 0; a < numerosCadenas.length; a++) {
-					//compruebo que i sea distinto que j
-					if (i != a) {
-						//comparo i con j para comprobar que existan valores repetidos
-						if (numerosCadenas[i].equals(numerosCadenas[a])){
-							//elimino el valor repetido
-							numerosCadenas[i] = "";
+				//recorro el array de cadenas y compruebo si hay números iguales en el array
+				for (int i = 0; i < numerosCadenas.length; i++) {
+					for (int a = 0; a < numerosCadenas.length; a++) {
+						//compruebo que i sea distinto que j
+						if (i != a) {
+							//comparo i con j para comprobar que existan valores repetidos
+							if (numerosCadenas[i].equals(numerosCadenas[a])){
+								//elimino el valor repetido
+								numerosCadenas[i] = "";
+							}
 						}
 					}
 				}
-			}
 
-			//salto de línea
-			System.out.println();
+				//salto de línea
+				System.out.println();
 
-			//ordeno el array
-			Arrays.sort(numerosCadenas);
+				//ordeno el array
+				Arrays.sort(numerosCadenas);
 
-			//recorro el bucle y muestro el resultado
-			System.out.println("ARRAY SIN VALORES REPETIDOS");
-			for (int i = 0; i < numerosCadenas.length; i++) {
-				System.out.print(numerosCadenas[i] + " ");
-			}
+				//recorro el bucle y muestro el resultado
+				System.out.println("ARRAY SIN VALORES REPETIDOS");
+				for (int i = 0; i < numerosCadenas.length; i++) {
+					System.out.print(numerosCadenas[i] + " ");
+				}
 
-			//salto de línea
-			System.out.println();
-			break;
+				//salto de línea
+				System.out.println();
+				break;
 
 			case 9:
 			/*La opción buscar elemento pedirá un número e indicará en que posición se encuentra
 			dentro del array, si no lo encuentra también lo indicará.*/
-			//declaro la variable posción = -1 
-			int posicion = -1;
+				//declaro la variable posción = -1 
+				int posicion = -1;
 
-			//pido por teclado el número del cuál deseo conocer la posición
-			System.out.print("Introduce un número para localizar su posición en el array: ");
-			int numeroEjer9 = x.nextInt();
+				//pido por teclado el número del cuál deseo conocer la posición
+				System.out.print("Introduce un número para localizar su posición en el array: ");
+				int numeroEjer9 = x.nextInt();
 
-			//recorro el array
-			for (int i = 0; i < numeros.length; i++) {
-				//compruebo si el número por teclado śe encuentra dentro del array
-				if (numeros[i] == numeroEjer9) {
-					//guardo su posición
-					posicion = i;
+				//recorro el array
+				for (int i = 0; i < numeros.length; i++) {
+					//compruebo si el número por teclado śe encuentra dentro del array
+					if (numeros[i] == numeroEjer9) {
+						//guardo su posición
+						posicion = i;
+					}
 				}
-			}
 
-			//Muestro si el número se encuentra en el array y su posicion y sino también
-			if (posicion == -1) {
-				System.out.println("No se ha encontrado el número dentro del array");
-			} else {
-				System.out.println("El número " + numeroEjer9 + " se encuentra en la posicion " + posicion);
-			}
+				//Muestro si el número se encuentra en el array y su posicion y sino también
+				if (posicion == -1) {
+					System.out.println("No se ha encontrado el número dentro del array");
+				} else {
+					System.out.println("El número " + numeroEjer9 + " se encuentra en la posicion " + posicion);
+				}
 
-			//salto de línea
-			System.out.println();
-			break;
+				//salto de línea
+				System.out.println();
+				break;
 
 			case 10:
 			/*La opción mostrar números mayores a la suma de sus posiciones adyacentes. Mostrará el
