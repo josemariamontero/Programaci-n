@@ -136,6 +136,50 @@ public class ejercicios1_14 {
 		return numero / resultado;
 	}
 	
+	/*10. quitaPorDelante: Le quita a un número n dígitos por delante (por la
+	izquierda).*/
+	public static int quitaPorDelante (int numero, int quitarDigitos) {
+		int numInvertido = 0;
+		int resultadoFinal = 0;
+		numInvertido = voltea(numero);
+		int resultado = 0;
+		resultado = (int)(Math.pow(10, quitarDigitos));
+		resultado = numInvertido / resultado;
+		resultadoFinal = voltea(resultado);
+		return resultadoFinal;
+	}
+	
+	/*11. pegaPorDetras: Añade un dígito a un número por detrás.*/
+	public static int pegaPorDetras (int numero, int añadirNumeroDetras) {
+		int resultado = 0;
+		resultado = (numero * 10) + añadirNumeroDetras;
+		return resultado;
+	}
+	
+	/*12. pegaPorDelante: Añade un dígito a un número por delante.*/
+	public static int pegaPorDelante (int numero, int añadirNumeroDelante) {
+		int resultado = 0;
+		resultado = (añadirNumeroDelante * (int)(Math.pow(10, digitos(numero))) + numero);
+		return resultado;
+	}
+	
+	/*13. trozoDeNumero: Toma como parámetros las posiciones inicial y final
+	dentro de un número y devuelve el trozo correspondiente.*/
+	public static int trozoDeNumero (int numero, int posInicial, int posFinal) {
+		int resultado = 0;
+		resultado = quitaPorDetras(numero, posFinal);
+		resultado = quitaPorDelante(resultado,posInicial);
+		return resultado;
+	}
+	
+	/*14. juntaNumeros: Pega dos números para formar uno.*/
+	public static int juntaNumeros (int numero, int numero2) {
+		int resultado = 0;
+		resultado = (numero * (int)(Math.pow(10, digitos(numero)))) + numero2;
+		return resultado;
+	}
+	
+	
 	public static void main(String[] args) {
 		// TODO Apéndice de método generado automáticamente
 		
@@ -202,7 +246,7 @@ public class ejercicios1_14 {
 				
 		//muestro el resultado
 		System.out.println("El número " + posicion + " se encuentra en la posicion " + posicionDeDigito(numeroTeclado,posicion));
-		*/
+		
 		//pido un número por teclado 
 		System.out.print("Introduce un número: ");
 		int numeroTeclado = x.nextInt();
@@ -213,6 +257,64 @@ public class ejercicios1_14 {
 		
 		//muestro el resultado
 		System.out.println("El nuevo número es: " + quitaPorDetras(numeroTeclado,quitarNumeros));
+		
+		//pido un número por teclado 
+		System.out.print("Introduce un número: ");
+		int numeroTeclado = x.nextInt();
+				
+		//pido cuantos números se desea quitar por delante
+		System.out.print("¿Cuántos números desea quitar por delante?: ");
+		int quitarNumeros = x.nextInt();
+				
+		//muestro el resultado
+		System.out.println("El nuevo número es: " + quitaPorDelante(numeroTeclado,quitarNumeros));
+		
+		//pido un número por teclado 
+		System.out.print("Introduce un número: ");
+		int numeroTeclado = x.nextInt();
+		
+		//pido un número para añadirlo al final
+		System.out.print("Introduzca el número que quiera añadir al final del número introducido anteriormente: ");
+		int numeroAñadir = x.nextInt();
+		
+		//muestro el resultado
+		System.out.println("El nuevo número es: " + pegaPorDetras(numeroTeclado,numeroAñadir));
+		
+		//pido un número por teclado 
+		System.out.print("Introduce un número: ");
+		int numeroTeclado = x.nextInt();
+				
+		//pido un número para añadirlo al final
+		System.out.print("Introduzca el número que quiera añadir al principio del número introducido anteriormente: ");
+		int numeroAñadir = x.nextInt();
+				
+		//muestro el resultado
+		System.out.println("El nuevo número es: " + pegaPorDelante(numeroTeclado,numeroAñadir));
+		
+		//pido un número por teclado 
+		System.out.print("Introduce un número: ");
+		int numeroTeclado = x.nextInt();
+						
+		//pido un número para añadirlo al final
+		System.out.print("Introduzca la posicion inicial del trozo que quieres ver: ");
+		int posInicial = x.nextInt();
+	
+		//pido la posicion final del trozo
+		System.out.print("Introduce la posicion final del trozo que quieres ver: ");
+		int posFinal = x.nextInt();
+		
+		//muestro el resultado
+		System.out.println("Número cortado: " + trozoDeNumero(numeroTeclado,posInicial,posFinal));
+				
+		//pido 2 números por teclado
+		System.out.print("Introduce el primer número: ");
+		int numeroTeclado = x.nextInt();
+		System.out.print("Introuce el segundo número: ");
+		int numeroTeclado2 = x.nextInt();
+		
+		//muestro el resultado
+		System.out.println("Los números juntos forman el siguiente número: " + juntaNumeros(numeroTeclado,numeroTeclado2));
+		*/
 	}
 
 }
