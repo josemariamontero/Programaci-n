@@ -101,13 +101,68 @@ public class ejercicios20_28 {
 		}
 		return posiciones;
 	}
+	/*7. volteaArrayInt: Le da la vuelta a un array.*/
+	public static int[] volteaArrayInt (int []numeros) {
+		//creo un array auxiliar con el tamaño del array que pasamos por parámetros
+		int []arrayInvertido = new int[numeros.length];
+		
+		//recorro el array numeros de manera invertida
+		for (int i = 0; i < numeros.length; i++) {
+			//añado los valores al array invertido
+			arrayInvertido[i] = numeros[numeros.length-1-i];
+		}
+		
+		//devolvemos el array 
+		return arrayInvertido;
+	}
+	/*8. rotaDerechaArrayInt: Rota n posiciones a la derecha los números de un
+	array.*/
+	public static int[] rotaDerechaArrayInt (int []numeros) {
+		//creo un array auxiliar con el tamaño del array numeros
+		int []arrayRotadoDerecha = new int[numeros.length];
+		
+		//defino una variable para guardar el último dígito
+		int ultimo = numeros[numeros.length - 1];
+		
+		//recorro el array números y roto una posición a la derecha 
+		for (int i = numeros.length - 2; i >= 0; i--) {
+			arrayRotadoDerecha[i + 1] = numeros[i];
+		}
+		
+		//coloco el último dígito en la primera posicion
+		arrayRotadoDerecha[0] = ultimo;
+		
+		//devuelvo el array rotado
+		return arrayRotadoDerecha;
+	}
+	
+	/*9. rotaIzquierdaArrayInt: Rota n posiciones a la izquierda los números de
+	un array.*/
+	public static int[] rotaIzquierdaArrayInt (int numeros[]) {
+		//creo un array auxiliar con el tamaño del array numeros
+		int []arrayRotadoIzquierda = new int[numeros.length];
+				
+		//defino una variable para guardar el primer dígito
+		int primero = numeros[0];
+				
+		//recorro el array números y roto una posición a la izquierda 
+		for (int i = 0; i < numeros.length - 1; i++) {
+			arrayRotadoIzquierda[i] = numeros[i + 1];
+		}
+				
+		//coloco el último dígito en la ultima posicion
+		arrayRotadoIzquierda[numeros.length - 1] = primero;
+				
+		//devuelvo el array rotado
+		return arrayRotadoIzquierda;
+	}
 	
 	public static void main(String[] args) {
 		// TODO Apéndice de método generado automáticamente
 		
 		Scanner x = new Scanner(System.in);
-		
-		/*//pido el tamaño del array
+
+		//pido el tamaño del array
 		System.out.print("Introduce el tamaño del array: ");
 		int tamañoArray = x.nextInt();
 		
@@ -127,9 +182,9 @@ public class ejercicios20_28 {
 		for (int i = 0; i < numeros.length; i++) {
 			System.out.print(numeros[i] + " ");
 		}
-		*/
-		//defino un array estatico
-		int []numeros = {18,25,1,5,55,3,999};
+		
+		/*defino un array estatico
+		int []numeros = {18,25,1,5,55,3,999};*/
 		
 		//llamo a la función para obtener el número mínimo del array anterior
 		System.out.println("El número mínimo del array es: " + minimoArrayInt(numeros));
@@ -157,6 +212,29 @@ public class ejercicios20_28 {
 		//llamo a la función y muestro los resultados
 		System.out.println("La posicion del número " + numeroParaPosicion + " es " + posicionEnArray(numeros, numeroParaPosicion));
 		
+		//llamo a la función para devolver el array invertido
+		System.out.println("Array invertido");
+		for (int i = 0; i < numeros.length; i++) {
+			System.out.print(volteaArrayInt(numeros)[i] + " ");
+		}
+		
+		//salto de línea
+		System.out.println();
+		
+		//llamo a la función y muestro el array rotado a la derecha
+		System.out.println("ARRAY ROTADO A LA DERECHA");
+		for (int i = 0; i < numeros.length; i++) {
+			System.out.print(rotaDerechaArrayInt(numeros)[i] + " ");
+		}
+		
+		//salto de línea
+		System.out.println();
+		
+		//llamo a la función  y muestro el array rotado a la izquierda
+		System.out.println("ARRAY ROTADO A LA IZQUIERDA");
+		for (int i = 0; i < numeros.length; i++) {
+			System.out.print(rotaIzquierdaArrayInt(numeros)[i] + " ");
+		}
 	}
 
 }
