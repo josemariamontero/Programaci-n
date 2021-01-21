@@ -35,6 +35,22 @@
 	2. [Comentarios de funciones](#72-comentarios-de-funciones)
 	3. [Creación de bibliotecas de rutinas mediante paquetes](#73-creacion-de-bibliotecas-de-rutinas-mediante-paquetes)
 	4. [Ámbito de las variables](#74-ambito-de-las-variables)
+8. [Programación orientada a objetos](#8-programación-orientada-a-objetos)
+	1. [Clases y objetos](#81-clases-y-objetos)
+	2. [Encapsulamiento y ocultación](#82-encapsulamiento-y-ocultación)
+	3. [Métodos](#83-métodos)
+		3.1. [Constructor](#831-constructor)
+		3.2. [Getter y Setter](#832-getter-y-setter)
+		3.3. [toString](#833-toString)
+	4. [Ámbito/visibilidad de los elementos de una clase](#84-ámbito-/-visibilidad-de-los-elementos-de-una-clase)
+	5. [Herencia](#85-herencia)
+		1. [Sobrecarga de métodos](#851-sobrecarga-de-metodos)
+		2. [Polimorfismo](#852-polimorfismo)
+	6. [Atributos y métodos de clase(static)](#86-atributos-y-metodos-de-clase-(-static-))
+	7. [Interfaces](#87-interfaces)
+	8. [Arrays de objetos](#88-arrays-de-objetos)
+
+
 
 
 ## 1. Salida de datos por pantalla
@@ -988,5 +1004,293 @@ public class ejercicio38 {
 ## 7.4 Ámbito de las variables
 El ámbito de una variable es el espacio donde "existe" esa variable, dicho de otro modo, el contexto dentro del cual la variable es válida. 
 Cuando se implementan funciones hay que tener muy claro que las variables utilizadas como parámetros y las variables que se definen dentro de la función, son locales a esa función y fuera de la función no existen.
+
+## 8. Programación orientada a objetos
+## 8.1 Clases y objetos
+La programación orientada a objetos es un paradigma de programación que se basa en la utilización de objetos. Estos objetos también suelen llamarse **instancias**.
+
+Un objeto en términos de *POO* no se diferencia mucho de lo que conocemos como un objeto en la vida real. Por ejemplo un coche, es un objeto en la vida real que podemos ver y tocar. Mi coche sería **instancia** (objetos) y coche a secas sería una **clase**. La palabra coche define algo genérico, hace referencia a unos elementos que tienen una serie de propiedades como matrícula, marca, modelo, color,etc. Este conjunto de propiedades se denominan **atributos** o **variables de instancia**.
+
+1. **Clase** => concepto abstracto que denota una serie de cualidades, por ejemplo coche.
+2. **Instancia** => objeto palpable, que se deriva de la concreción de una clase, por ejemplo mi coche.
+3. **Atributos** => conjunto de características que comparten los objetos de una clase, por ejemplo para la clase coche: matrícula, color, marca, modelo...
+
+En Java, los nombres de las clases se escriben en **mayúsculas** mientras que los nombres de las instancias comienzan con letra **minúscula**.
+Ejemplo
+
+> La clase coche se escribe *Coche* y el objeto mi coche se escribe *miCoche*.
+
+**Ejemplo**
+
+Definimos la clase Libro con los atributos isbn, autor, titulo y numPaginas
+
+~~~
+public class Libro {
+	//atributos
+	String isbn;
+	String titulo;
+	String autor;
+	int numeroPaginas;
+
+}
+~~~
+
+Vamos a crear 3 instancias de la clase Libro
+
+~~~
+public class PruebaLibro {
+
+	public static void main(String[] args) {
+		// TODO Apéndice de método generado automáticamente
+		
+		Libro lib = new Libro();
+		Libro lib2 = new Libro();
+		Libro quijote = new Libro();
+		
+		
+
+	}
+
+}
+~~~
+
+## 8.2 Encapsulamiento y ocultación
+Uno de los pilares en los que se basan la *POO* es el **encapsulamiento**. El **encapsulamiento** consiste en definir todas las propiedades y el comportamiento dentro de una clase dentro de esa clase.
+
+La **ocultación** es una técnica que incorporan algunos lenguajes que permite esconder los elementos que definen una clase. La **ocultación** facilita el **encapsulamiento**. 
+
+## 8.3 Métodos
+Un coche arranca, para, se aparca, se lleva a reparar....
+
+Las acciones asociadas a una clase se llaman **métodos**. Estos *métodos* se definen dentro del cuerpo de la clase y se suelen colocar a continuación de los atributos.
+
+> Los **métodos** determinan el **comportamiento** de los objetos.
+
+**Ejemplo**
+
+Vamos a crear una clase GatoSimple. Para saber los atributos, tendremos que saber las características que tienen los gatos: color, raza, edad, sexo, peso...
+Para saber los métodos, tenemos que conocer las acciones que hace un gato: maullar, comer, ronronear....
+
+~~~
+
+public class GatoSimple {
+	//atributos
+	String color;
+	String raza;
+	String sexo;
+	int edad;
+	int peso;
+	
+	//metodos
+	
+	//constructor
+	GatoSimple (String s) {
+		this.sexo = s;
+	}
+	
+	//getter
+	String getSexo() {
+		return this.sexo;
+	}
+	
+	//el gato maulla
+	void maulla() {
+		System.out.println("MIAAAAAAAAAAAAU");
+	}
+	
+	//el gato ronronea
+	void ronronea() {
+		System.out.println("MMRRRRRR");
+	}
+	
+	//el gato come
+	void come(String comida) {
+		if (comida.equals("pescado")) {
+			System.out.println("Gracias");
+		} else {
+			System.out.println("Solo como pescado");
+		}
+	}
+	
+	//el gato se pelea
+	void peleaCon(GatoSimple contricante) {
+		if (this.sexo.equals("hembra")) {
+			System.out.println("no me gusta pelear");
+		} else {
+			if (contricante.getSexo().equals("hembra")) {
+				System.out.println("Solo peleo contra machos");
+			} else {
+				System.out.println("Vamos al lío campeón");
+			}
+		}
+	}
+	
+}
+~~~
+
+## 8.3.1 Constructor
+El método constructor tiene siempre el mismo nombre que la clase y se utiliza para inicializar los atributos.
+
+Los atributos de la clase GatoSimple utilizada en el ejemplo anterior, se declaran igual que las variables que hemos venido usando hasta ahora, pero hay una gran diferencia entre estos atributos y las variables que aparecen en el *main*. 
+
+
+Por ejemplo en la cabecera del método *peleaCon*, void peleaCon(GatoSimple contricante).
+
+Es posible pasar un objeto como parámetro. Vamos a probar la clase GatoSimple.
+
+~~~
+public class PruebaGatoSimple {
+
+	public static void main(String[] args) {
+		// TODO Apéndice de método generado automáticamente
+		
+		GatoSimple gardfield = new GatoSimple("macho");
+		
+		gardfield.maulla();
+		System.out.println("Toma pescado a ver si te gusta");
+		gardfield.come("pescado");
+		
+		GatoSimple tom = new GatoSimple("macho");
+		
+		tom.maulla();
+		System.out.println("Toma una zanahoria");
+		tom.come("zanahoria");
+		
+		GatoSimple michu = new GatoSimple("hembra");
+		
+		michu.maulla();
+		
+		System.out.println("Maullar todos");
+		gardfield.maulla();
+		tom.maulla();
+		michu.maulla();
+		
+		gardfield.peleaCon(tom);
+		michu.peleaCon(gardfield);
+		tom.peleaCon(gardfield);
+		
+		
+	}
+
+}
+~~~
+
+Como podemos observar, al crear una instancia llamada constructor, que tiene el mismo nombre de la clase y sirve para inicializar los atributos. En este caso se inicializa el atributo *sexo*. Más adelante veremos constructores que inicializan varios atributos e incluso definiremos distintos constructores en la misma clase. 
+
+> GatoSimple gardfield = new GatoSimple("macho");
+
+Podemos observar como hay métodos que no toman ningún parámetro
+
+> gardfiel.maulla();
+
+Y métodos que deben tomar parámetros obligatoriamente
+
+> tom.come("zanahoria");
+
+## 8.3.2 Getter y Setter
+Vamos a crear la clase *Cubo*. Para saber los atributos necesitaremos conocer las características de un cubo; capacidad, color, material, capacidad...
+
+~~~
+
+public class Cubo {
+	//atributos
+	//capacidad máxima en Litros
+	int capacidad;
+	//contenido actual en Litros
+	int contenido;
+	
+	//metodos
+	//constructor
+	Cubo (int cap) {
+		this.capacidad = cap;
+	}
+	
+	//getter
+	int getCapacidad() {
+		return this.capacidad;
+	}
+	
+	int getContenido() {
+		return this.contenido;
+	}
+	
+	//setter
+	void setContenido(int litros) {
+		this.contenido = litros;
+	}
+	
+	void  vacio() {
+		this.contenido = 0;
+	}
+	
+	void lleno() {
+		this.contenido = this.capacidad;
+	}
+	
+	void pinta() {
+		for (int nivel = this.capacidad; nivel > 0; nivel--) {
+			if (this.contenido >= nivel) {
+				System.out.println("#~~~~~#");
+			} else {
+				System.out.println("#     #");
+			}
+		}
+		System.out.println("########");
+	}
+	
+	void vuelca(Cubo destino) {
+		int cuboVacío = destino.getCapacidad() - destino.getContenido();
+		
+		if (cuboVacío > 0) {
+			if (this.contenido <= 0) {
+				destino.setContenido(destino.contenido + this.contenido);
+				this.vacio();
+			} else {
+				this.contenido -= cuboVacío;
+				destino.lleno();
+			}
+		}
+	}
+}
+~~~
+
+Observa los siguientes métodos
+> int getCapacidad() { return this.capacidad; }
+> int getContenido() { return this.contenido; }
+
+Ambos métodos simples devuelven el valor de un atributo. Podría tener otro nombre pero en Java es costumbre llamarlos con la palabra get(obtener) seguida del nombre del atributo.
+
+Observamos el siguiente método
+> void setContenido(int litros) { this.contenido = litros; }	
+
+Ahora nos encontramos ante un *setter*. Este método establece un valor para un determinado atributo. Este método está formado por set(asignar) seguido del nombre del atributo
+
+Creamos una clase para probar el cubo
+
+~~~
+
+public class PruebaCubo {
+
+	public static void main(String[] args) {
+		// TODO Apéndice de método generado automáticamente
+		
+		Cubo cubo1 = new Cubo(2);
+		Cubo cubo2 = new Cubo(7);
+		
+		System.out.println("Cubo 1: ");
+		cubo1.pinta();
+		
+		System.out.println("Cubo 2: ");
+		cubo2.pinta();
+		
+		System.out.println("Lleno el cubo1 ");
+		cubo1.lleno();
+		cubo1.pinta();
+
+	}
+
+}
+~~~
+
 
 
