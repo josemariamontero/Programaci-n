@@ -1292,5 +1292,113 @@ public class PruebaCubo {
 }
 ~~~
 
+## 8.3.3 toString
+En Java existe una solución para mostrar información sobre un objeto por pantalla. Si se quiere mostrar el contenido de la variable entera *x* se utiliza *System.out.println(x)*.
+
+Si se quiere mostrar el valor de la variable de tipo cadena de caracteres *nombre* se escribe *System.out.print(nombre)*. 
+
+Vamos a ver un ejemplo de implementación de **toString** 
+
+~~~
+
+public class Cuadrado {
+	
+	int lado;
+	
+	public Cuadrado(int l) {
+		this.lado = l;
+	}
+	
+	public String toString() {
+		int i, espacios;
+		String resultado = "";
+		
+		
+		for (i = 0; i < this.lado; i++) {
+			resultado += "[][]";
+		}
+		
+		resultado += "\n";
+		
+		for (i = 1; i < this.lado - 1; i++) {
+			resultado += "[][]";
+		}
+		
+		for (espacios = 1; espacios < this.lado - 1; espacios++) {
+			resultado += "[][]\n";
+		}
+		
+		for (i = 0; i < this.lado; i++) {
+			resultado += "[][]";
+		}
+		resultado += "\n";
+		
+		return resultado;
+	}	
+}
+~~~
+
+Como podemos observar el método *toString()* devuelve una cadena de caracteres.
+
+Vamos a probar la clase anterior **Cuadrado**
+
+~~~
+public class PruebaCuadrado {
+
+	public static void main(String[] args) {
+		// TODO Apéndice de método generado automáticamente
+		
+		Cuadrado miCuadrado = new Cuadrado(5);
+		System.out.println(miCuadrado);
+
+	}
+}
+~~~
+
+## 8.4 Àmbito/visibilidad'de los elementos de una clase 
+Al definir los elementos de una clase, se pueden especificar sus ámbitos de visibilidad o accesibilidad con las palabras reservadas 
+*public* (público), *protected* (protegido) y *private* (privado).
+
+Un atributo *private* solamente es accesible desde la misma clase, un método *protected* se podrá acceder desde la misma clase donde esté definido, desde otro fichero dentro del mismo paquete o desde una subclase. 
+
+Como norma general, se suelen declarar *private* los atributos y *public* los métodos.
+
+**Ejemplo**
+
+~~~
+
+public abstract class Animal {
+	
+	private Sexo sexo;
+	
+	public Animal () {
+		sexo = Sexo.MACHO;
+	}
+	
+	public Animal (Sexo s) {
+		sexo = s;
+	}
+	
+	public Sexo getSexo() {
+		return sexo;
+	}
+	
+	public String toString() {
+		return "Sexo: " + this.sexo + "\n";
+	}
+	
+	public void duerme() {
+		System.out.println("Zzzzzzzzz");
+	}
+
+}
+~~~
+
+Como podeoms observar, el atributo *sexo* se ha definido como *private*. 
+>  private Sexo sexo;
+
+Por tanto significa que a ese atributo solamente se tiene acceso dentro de la clase *Animal*. Sin embargo, todos los métodos definidos como *public* pueden ser usados desde cualquier otro programa.
+
+
 
 
